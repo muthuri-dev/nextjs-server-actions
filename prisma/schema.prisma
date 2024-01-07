@@ -11,14 +11,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model job {
+model Job {
   id               String   @id @default(uuid())
-  slug             String
+  slug             String   @default("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6G4KvIM_xWhr51oW0dF9ZGqgcoYUkX8WNww&usqp=CAU")
   title            String
   type             String
   locationType     String
   location         String?
-  description      String?
+  description      String?  @db.LongText
   salary           Int
   campanyName      String
   applicationEmail String?
