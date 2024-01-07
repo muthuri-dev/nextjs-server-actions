@@ -20,3 +20,10 @@ export const GET_JOBS = gql`
     }
   }
 `;
+export const GET_lOCATIONS = gql`
+
+query GetJobs{
+  getJobs{
+    location
+  }
+}`
