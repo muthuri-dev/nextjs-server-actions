@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model job {
+  id               String   @id @default(uuid())
+  slug             String
+  title            String
+  type             String
+  locationType     String
+  location         String?
+  description      String?
+  salary           Int
+  campanyName      String
+  applicationEmail String?
+  applicationUrl   String?
+  companyLogoUrl   String?
+  approved         Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedat        DateTime @updatedAt
+
+  @@map("jobs")
+}
